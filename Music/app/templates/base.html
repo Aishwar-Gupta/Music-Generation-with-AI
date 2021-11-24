@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+
+	*{
+		font-family: 'Times New Roman' ;
+	}
+	
+    #navBar{
+        background-color: #0055A2 ;
+    }
+    .navbar{
+        overflow: hidden;
+        position: fixed;
+        top: 0; /* Position the navbar at the top of the page */
+        width: 100%; /* Full width */
+    }
+	
+	
+
+
+</style>
+
+<html>
+	
+    <nav  class="navbar navbar-light" id="navBar">
+    <a class="navbar-brand" onclick="location.href ='/'" >
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/San_Jose_State_Spartans_logo.svg/1200px-San_Jose_State_Spartans_logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+    </a>
+
+    <form class="d-flex" >
+        <div class='pr-2'>
+        <a onclick="location.href ='/logout'"  class="btn btn-primary">
+            <img width="50" height="30" class="d-inline-block align-top m-2 " alt="Logout">
+        </a>
+        </div>
+    </form>
+	</nav>
+
+    <head>
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Home Page - my blog</title>
+        {% endif %}
+    </head>
+	<div class="m-4 p-2 container-md">
+    <body class="mt-4 pt-4 text-center">
+		<body class="bg-image" style="background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/51/82/RP4fIq.jpg')" height: "100vh">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+			<li> <p class="text-danger"><b>{{ message }}</b></p></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </body>
+	</div>
+</html>
+

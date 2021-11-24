@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body class="mt-5 pt-5">
+    <h1>Delete Account</h1>
+	<h2></h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=128) }}
+        </p>
+		<p>
+            {{ form.password_confirm.label }}<br>
+            {{ form.password_confirm(size=128) }}
+        </p>
+
+        <p class="btn btn-danger">{{ form.submit() }}</p>
+    </form><br>
+	</body>
+{% endblock %}
